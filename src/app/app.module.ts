@@ -46,6 +46,10 @@ import { ListaServicioPacienteUserComponent } from './views/user/lista-servicio-
 import { ListaVentaUserComponent } from './views/user/lista-venta-user/lista-venta-user.component';
 import { DetalleCompraUserComponent } from './views/user/detalle-compra-user/detalle-compra-user.component';
 import { DetalleVentaUserComponent } from './views/user/detalle-venta-user/detalle-venta-user.component';
+import { DashboardAdminComponent } from './views/admin/dashboard-admin/dashboard-admin.component';
+import { SidebarAdminComponent } from './views/admin/sidebar-admin/sidebar-admin.component';
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -91,11 +95,14 @@ import { DetalleVentaUserComponent } from './views/user/detalle-venta-user/detal
     ListaServicioPacienteUserComponent,
     ListaVentaUserComponent,
     DetalleCompraUserComponent,
-    DetalleVentaUserComponent
+    DetalleVentaUserComponent,
+    DashboardAdminComponent,
+    SidebarAdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
