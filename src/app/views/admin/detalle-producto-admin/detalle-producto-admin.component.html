@@ -1,1 +1,19 @@
-<p>detalle-producto-admin works!</p>
+<h1>Detalles Producto</h1>
+<h2>Nombre Producto</h2>
+<h3>{{productoTraido?.nombreProducto}}</h3>
+<h2>Clave</h2>
+<h3>{{productoTraido?.claveProducto}}</h3>
+<h2>Tipo</h2>
+<h3>{{productoTraido?.tipoProducto}}</h3>
+<h2>Precio Proveedor</h2>
+<h3>{{productoTraido?.costoProducto |currency}}</h3>
+<h2>Precio Cliente</h2>
+<h3>{{productoTraido?.precioProducto | currency}}</h3>
+<h2>Cantidad</h2>
+<h3>{{productoTraido?.cantidadProducto}}</h3>
+<h2>Proveedor</h2>
+<h3>{{productoTraido?.proveedor.nombreProveedor}}</h3>
+
+<button>Editar</button>
+<button>Eliminar</button>
+<button>Regresar</button>

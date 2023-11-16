@@ -1,1 +1,26 @@
-<p>lista-compra-admin works!</p>
+<h1>Compras</h1>
+<button>Crear Compra</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Proveedor</th>
+            <th>Nota</th>
+            <th>Factura</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let compra of lista_compras">
+        <tr>
+            <td>{{compra.idCompra}}</td>
+            <td>{{compra.proveedor.nombreProveedor}}</td>
+            <td>{{compra.notaCompra}}</td>
+            <td>{{compra.facturaCompra}}</td>
+            <td>{{compra.fechaCompra | date}}</td>
+            <td>{{compra.totalCompra | currency}}</td>
+            <td><a [routerLink]="'/admin/compras/'+compra.idCompra">Detalles</a></td>
+        </tr>
+    </tbody>
+</table>  

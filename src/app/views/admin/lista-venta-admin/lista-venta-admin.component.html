@@ -1,1 +1,20 @@
-<p>lista-venta-admin works!</p>
+<h1>Ventas</h1>
+<button>Crear Compra</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let venta of lista_ventas">
+        <tr>
+            <td>{{venta.idVenta}}</td>
+            <td>{{venta.fechaVenta}}</td>
+            <td>{{venta.totalVenta | currency}}</td>
+            <td><a [routerLink]="'/admin/venta/'+venta.idVenta">Detalles</a></td>
+        </tr>
+    </tbody>
+</table>  

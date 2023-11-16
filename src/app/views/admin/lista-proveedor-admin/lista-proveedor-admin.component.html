@@ -1,1 +1,20 @@
-<p>lista-proveedor-admin works!</p>
+<h1>Proveedor</h1>
+<button>Crear Proveedor</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let proveedor of lista_proveedor">
+        <tr>
+            <td>{{proveedor.idProveedor}}</td>
+            <td>{{proveedor.nombreProveedor}}</td>
+            <td>{{proveedor.telefonoProveedor}}</td>
+            <td><a [routerLink]="'/admin/proveedor/'+proveedor.idProveedor">Detalles</a></td>
+        </tr>
+    </tbody>
+</table>

@@ -8,47 +8,76 @@ import baseUrl from '../util/Helper';
 })
 export class ApiService {
 
-  
-  baseAnd:string =`${baseUrl}`
-  constructor(private http:HttpClient) { }
+
+  baseApi: string = `${baseUrl}`
+  constructor(private http: HttpClient) { }
 
 
   /* **Compras** */
   //Lista Compras
-  public listarCompras(pagina,pageSize,orderBy,sort){
-      return this.http.get(this.baseAnd+"");
-  }
-
-  //Lista compras por id Proveedor
-  public listarComprasByProveedor(pagina,pageSize,orderBy,sort,idProveedor){
-    return this.http.get(this.baseAnd+"");
+  public listarCompras(pagina, pageSize, orderBy, sort) {
+    return this.http.get(this.baseApi + "/compras?numPage=" + pagina + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sort);
   }
 
   //Obtener la compra por su id
-  public obtenerComprasByIdCompra(idCompra){
-    return this.http.get(this.baseAnd+""+idCompra);
+  public obtenerComprasByIdCompra(idCompra) {
+    return this.http.get(this.baseApi + "/compras/" + idCompra);
   }
 
-  //Obtener la compra por nota
-  public obtenerCompraByNota(nota){
-    return this.http.get(this.baseAnd+""+nota);
+
+  /* ++Pacientes++ */
+  public listarPaciente(pageNumber, pageSize, orderBy, sortDir) {
+    return this.http.get(this.baseApi + "/paciente?numPage=" + pageNumber + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sortDir);
   }
 
-  public obtenerDetallesCompras(idCompra){
-    return this.http.get(this.baseAnd+"",idCompra);
+  public obtenerPacienteById(idPaciente) {
+    return this.http.get(this.baseApi + "/paciente/" + idPaciente);
   }
 
-  public crearCompra(compra){
-    return this.http.post(this.baseAnd,compra);  
+
+  /* ++Productos++ */
+  public listarProductos(pageNumber, pageSize, orderBy, sortDir) {
+    return this.http.get(this.baseApi+"/producto?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
 
-  public actualizarCompra(compra){
-    return this.http.put(this.baseAnd,compra);
+  public obtenerProductoById(idProducto){
+    return this.http.get(this.baseApi+"/producto/"+idProducto);
   }
 
-  public eliminarCompra(idCompra){
-    return this.http.delete(this.baseAnd+""+idCompra);
+  /* ++Propietarios++ */
+  public listarPropietarios(pageNumber, pageSize, orderBy,sortDir){
+    return this.http.get(this.baseApi+"/propietario?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
- /* **Fin Compras** */
- 
+
+  public obtenerPropietarioById(idPropietario){
+    return this.http.get(this.baseApi+"/propietario/"+idPropietario);
+  }
+
+
+  /* ++Proveedor++ */
+  public listarProveedor(pageNumber,pageSize,orderBy,sortDir){
+    return this.http.get(this.baseApi+"/proveedor?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
+  }
+
+  public obtenerProveedorById(idProveedor){
+    return this.http.get(this.baseApi+"/proveedor/"+idProveedor);
+  }
+
+  /* ++Servicio++ */
+  public listarServicio(pageNumber,pageSize,orderBy,sortDir){
+    return this.http.get(this.baseApi+"/servicio?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
+  }
+
+  public obtenerServicioById(idServicio){
+    return this.http.get(this.baseApi+"/servicio/"+idServicio);
+  }
+
+  /* ++Ventas++ */
+  public listarVentas(pageNumber,pageSize,orderBy,sortDir){
+    return this.http.get(this.baseApi+"/venta?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
+  }
+
+  public obtenerVentaById(idVenta){
+    return this.http.get(this.baseApi+"/venta/"+idVenta);
+  }
 }

@@ -3,13 +3,13 @@
     <li><a [routerLink]="'/admin/compras'">Compras</a></li>
     <li><a href="">Diario</a></li>
     <li><a href="">Historico</a></li>
-    <li><a href="">Pacientes</a></li>
-    <li><a href="">Productos</a></li>
-    <li><a href="">Dueños</a></li>
-    <li><a href="">Proveedores</a></li>
+    <li><a [routerLink]="'/admin/paciente'">Pacientes</a></li>
+    <li><a [routerLink]="'/admin/producto'">Productos</a></li>
+    <li><a [routerLink]="'/admin/propietario'">Dueños</a></li>
+    <li><a [routerLink]="'/admin/proveedor'">Proveedores</a></li>
     <li><a href="">Responsivas</a></li>
-    <li><a href="">Servicios</a></li>
-    <li><a href="">Ventas</a></li>
+    <li><a [routerLink]="'/admin/servicio'">Servicios</a></li>
+    <li><a [routerLink]="'/admin/ventas'">Ventas</a></li>
 </ul>
 <div>
     <router-outlet></router-outlet>

@@ -1,1 +1,24 @@
-<p>lista-producto-admin works!</p>
+<h1>Compras</h1>
+<button>Crear Producto</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let producto of lista_producto">
+        <tr>
+            <td>{{producto.idProducto}}</td>
+            <td>{{producto.nombreProducto}}</td>
+            <td>{{producto.cantidadProducto}}</td>
+            <td>{{producto.precioProducto | currency}}</td>
+            <td>{{producto.tipoProducto}}</td>
+            <td><a [routerLink]="'/admin/producto/'+producto.idProducto">Detalles</a></td>
+        </tr>
+    </tbody>
+</table> 

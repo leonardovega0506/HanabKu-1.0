@@ -1,1 +1,22 @@
-<p>lista-servicio-admin works!</p>
+<h1>Servicios</h1>
+<button>Crear Proveedor</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Clave</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let servicio of lista_servicio">
+        <tr>
+            <td>{{servicio.idServicio}}</td>
+            <td>{{servicio.claveServicio}}</td>
+            <td>{{servicio.nombreServicio}}</td>
+            <td>{{servicio.costoServicio}}</td>
+            <td><a [routerLink]="'/admin/servicio/'+servicio.idServicio">Detalles</a></td>
+        </tr>
+    </tbody>
+</table>

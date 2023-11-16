@@ -1,1 +1,22 @@
-<p>lista-paciente-admin works!</p>
+<h1>Compras</h1>
+<button>Crear Paciente</button>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Dueño</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let paciente of lista_paciente">
+        <tr>
+            <td>{{paciente.idPaciente}}</td>
+            <td>{{paciente.propietario.nombrePropietario}}</td>
+            <td>{{paciente.nombre_paciente}}</td>
+            <td>{{paciente.tipoMascotaPaciente}}</td>
+            <td><a [routerLink]="'/admin/paciente/'+paciente.idCompra">Detalles</a></td>
+        </tr>
+    </tbody>
+</table> 

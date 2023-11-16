@@ -1,1 +1,32 @@
-<p>detalle-compra-admin works!</p>
+<h1>Orden</h1>
+<h2>Factura</h2>
+<h3>{{ordenTraida?.facturaCompra}}</h3>
+<h2>Fecha</h2>
+<h3>{{ordenTraida?.fechaCompra}}</h3>
+<h2>Nota</h2>
+<h3>{{ordenTraida?.notaCompra}}</h3>
+<h2>Proveedor</h2>
+<h3>{{ordenTraida?.proveedor.nombreProveedor}}</h3>
+<h2>Total</h2>
+<h3>{{ordenTraida?.totalCompra | currency}}</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Fecha</th>
+      <th>Nombre Producto</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let detalle of ordenTraida?.productosCompra">
+    <tr>
+        <td>{{detalle.idDetalle}}</td>
+        <td>{{ordenTraida.fechaCompra}}</td>
+        <td>{{detalle.productoDetalle.nombreProducto}}</td>
+        <td>{{detalle.cantidadDetalle}}</td>
+        <td>{{detalle.precioTotalDetalle | currency}}</td>
+    </tr>
+  </tbody>
+</table>
