@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -49,7 +50,17 @@ import { DetalleVentaUserComponent } from './views/user/detalle-venta-user/detal
 import { DashboardAdminComponent } from './views/admin/dashboard-admin/dashboard-admin.component';
 import { SidebarAdminComponent } from './views/admin/sidebar-admin/sidebar-admin.component';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { AgregarCompraAdminComponent } from './views/admin/agregar-compra-admin/agregar-compra-admin.component';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AgregarProductoAdminComponent } from './views/admin/agregar-producto-admin/agregar-producto-admin.component';
+import { AgregarProveedorAdminComponent } from './views/admin/agregar-proveedor-admin/agregar-proveedor-admin.component';
+import { AgregarPropietarioAdminComponent } from './views/admin/agregar-propietario-admin/agregar-propietario-admin.component';
+import { AgregarPacienteAdminComponent } from './views/admin/agregar-paciente-admin/agregar-paciente-admin.component';
+import { AgregarServicioComponent } from './views/admin/agregar-servicio/agregar-servicio.component';
+
 
 @NgModule({
   declarations: [
@@ -97,12 +108,22 @@ import { HttpClientModule } from '@angular/common/http';
     DetalleCompraUserComponent,
     DetalleVentaUserComponent,
     DashboardAdminComponent,
-    SidebarAdminComponent
+    SidebarAdminComponent,
+    AgregarCompraAdminComponent,
+    AgregarProductoAdminComponent,
+    AgregarProveedorAdminComponent,
+    AgregarPropietarioAdminComponent,
+    AgregarPacienteAdminComponent,
+    AgregarServicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

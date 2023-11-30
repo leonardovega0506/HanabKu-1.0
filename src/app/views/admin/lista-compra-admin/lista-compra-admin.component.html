@@ -1,26 +1,51 @@
-<h1>Compras</h1>
-<button>Crear Compra</button>
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Proveedor</th>
-            <th>Nota</th>
-            <th>Factura</th>
-            <th>Fecha</th>
-            <th>Total</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let compra of lista_compras">
-        <tr>
-            <td>{{compra.idCompra}}</td>
-            <td>{{compra.proveedor.nombreProveedor}}</td>
-            <td>{{compra.notaCompra}}</td>
+<!--Header-->
+<div>
+  <!--Titulo-->
+  <h1>Compras</h1>
+  <!--Agregar Co,pra-->
+  <div class="botonCenter" style="text-align: center">
+    <button class="icon-btn add-btn" [routerLink]="'/admin/compras/add'">
+      <div class="add-icon"></div>
+      <div class="btn-txt">Crear Compra</div>
+    </button>
+  </div>
+</div>
+<!--Tabla-->
+<div class="content">
+  <div class="container">
+    <div class="table-responsive table-wrapper">
+      <table class="table table-striped custom-table fl-table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Nota</th>
+            <th scope="col">Factura</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Total</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let compra of lista_compras">
+          <tr scope="row">
+            <td>
+              {{compra.idCompra}}
+            </td>
+            <td><a href="#">{{compra.proveedor.nombreProveedor}}</a></td>
+            <td>
+              {{compra.notaCompra}}
+            </td>
             <td>{{compra.facturaCompra}}</td>
+            <td>{{compra.estatusCompra}}</td>
             <td>{{compra.fechaCompra | date}}</td>
             <td>{{compra.totalCompra | currency}}</td>
-            <td><a [routerLink]="'/admin/compras/'+compra.idCompra">Detalles</a></td>
-        </tr>
-    </tbody>
-</table>  
+            <td><a [routerLink]="'/admin/compras/'+compra.idCompra" class="more">Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+

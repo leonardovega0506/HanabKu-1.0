@@ -1,0 +1,92 @@
+<div class="titulo">
+    <h1>Agregar Paciente</h1>
+  </div>
+  <div class="registration-form">
+    <form (ngSubmit)="agregarPaciente()" [formGroup]="pacienteNuevo">
+      <div class="form-icon">
+        <span><i class="icon icon-user"></i></span>
+      </div>
+      <div class="form-group">
+        <div *ngIf="pacienteNuevo.get('nombrePaciente').invalid && pacienteNuevo.get('nombrePaciente').touched" class="error-container">
+          <div *ngIf="pacienteNuevo.get('nombrePaciente').hasError('required')" class="error-message">
+            El nombre es obligatorio.
+          </div>
+        </div>
+        <input type="text" class="form-control item" id="nombrePaciente" placeholder="Nombre" formControlName="nombrePaciente"
+          name="nombrePaciente">
+      </div>
+      <div class="form-group">
+        <div *ngIf="pacienteNuevo.get('tipoMascotaPaciente').invalid && pacienteNuevo.get('tipoMascotaPaciente').touched" class="error-container">
+          <div *ngIf="pacienteNuevo.get('tipoMascotaPaciente').hasError('required')" class="error-message">
+            El telefono es obligatorio.
+          </div>
+          <div *ngIf="pacienteNuevo.get('tipoMascotaPaciente').hasError('pattern')" class="error-message">
+            El telfono sólo debe contener numeros.
+          </div>
+        </div>
+        <input type="tel" class="form-control item" placeholder="Tipo" formControlName="tipoMascotaPaciente"
+          name="tipoMascotaPaciente" required>
+      </div>
+      <div *ngIf="pacienteNuevo.get('razaPaciente').invalid && pacienteNuevo.get('razaPaciente').touched" class="error-container">
+        <div *ngIf="pacienteNuevo.get('razaPaciente').hasError('minlength')" class="error-message">
+          El telefono debe tener al menos 8 caracteres.
+        </div>
+        <div *ngIf="pacienteNuevo.get('razaPaciente').hasError('maxlength')" class="error-message">
+          El telfono no debe exceder de 12 caracteres.
+        </div>
+        <div *ngIf="pacienteNuevo.get('razaPaciente').hasError('pattern')" class="error-message">
+          El telfono sólo debe contener numeros.
+        </div>
+      </div>
+      <div class="form-group">
+        <input class="form-control item" type="tel" placeholder="Raza" formControlName="razaPaciente"
+          name="razaPaciente" required>
+      </div>
+      <div class="form-group">
+        <div *ngIf="pacienteNuevo.get('colorPaciente').invalid && pacienteNuevo.get('colorPaciente').touched" class="error-container">
+          <div *ngIf="pacienteNuevo.get('colorPaciente').hasError('minlength')" class="error-message">
+            El email debe tener al menos 4 caracteres.
+          </div>
+          <div *ngIf="pacienteNuevo.get('colorPaciente').hasError('email')" class="error-message">
+            No coincide con el formato de correo electronico.
+          </div>
+        </div>
+        <input type="text" class="form-control item" placeholder="Color" formControlName="colorPaciente" name="colorPaciente">
+      </div>
+      <div class="form-group">
+        <div *ngIf="pacienteNuevo.get('sexoPaciente').invalid && pacienteNuevo.get('sexoPaciente').touched" class="error-container">
+          <div *ngIf="pacienteNuevo.get('sexoPaciente').hasError('minlength')" class="error-message">
+            El email debe tener al menos 4 caracteres.
+          </div>
+          <div *ngIf="pacienteNuevo.get('sexoPaciente').hasError('email')" class="error-message">
+            No coincide con el formato de correo electronico.
+          </div>
+        </div>
+        <input type="text" class="form-control item" placeholder="Sexo" formControlName="sexoPaciente" name="sexoPaciente">
+      </div>
+      <div class="form-group">
+        <div *ngIf="pacienteNuevo.get('edadPaciente').invalid && pacienteNuevo.get('edadPaciente').touched" class="error-container">
+          <div *ngIf="pacienteNuevo.get('edadPaciente').hasError('minlength')" class="error-message">
+            El email debe tener al menos 4 caracteres.
+          </div>
+          <div *ngIf="pacienteNuevo.get('edadPaciente').hasError('email')" class="error-message">
+            No coincide con el formato de correo electronico.
+          </div>
+        </div>
+        <input type="text" class="form-control item" placeholder="Edad" formControlName="edadPaciente" name="edadPaciente">
+      </div>
+      <div class="form-group">
+        <select formControlName="propietarioSeleccionado" class="form-control item" name="proveedor">
+          <option [value]="propietario.idPropietario" *ngFor="let propietario of listaPropietario">{{propietario.nombrePropietario}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-block create-account">Agregar Paciente</button> &nbsp;
+        <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+      </div>
+
+    </form>
+  
+  </div>
+  

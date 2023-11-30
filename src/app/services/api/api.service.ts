@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import baseUrl from '../util/Helper';
+import baseUrl from '../util/helper';
+
 
 
 @Injectable({
@@ -12,11 +13,19 @@ export class ApiService {
   baseApi: string = `${baseUrl}`
   constructor(private http: HttpClient) { }
 
+  /* ++Citas++*/
+  public listarCitas(mes){
+    return this.http.get(this.baseApi+"/citas/mes?mes="+mes);
+  }
 
   /* **Compras** */
   //Lista Compras
   public listarCompras(pagina, pageSize, orderBy, sort) {
     return this.http.get(this.baseApi + "/compras?numPage=" + pagina + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sort);
+  }
+
+  public agregarCompra(compra){
+    return this.http.post(this.baseApi+"/compras",compra);
   }
 
   //Obtener la compra por su id
@@ -26,6 +35,10 @@ export class ApiService {
 
 
   /* ++Pacientes++ */
+  public agregarPaciente(paciente,idPropietario){
+    return this.http.post(this.baseApi+"/paciente?idPropietario="+idPropietario,paciente);
+  }
+
   public listarPaciente(pageNumber, pageSize, orderBy, sortDir) {
     return this.http.get(this.baseApi + "/paciente?numPage=" + pageNumber + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sortDir);
   }
@@ -36,6 +49,11 @@ export class ApiService {
 
 
   /* ++Productos++ */
+
+  public agregarProducto(producto,idProveedor){
+    return this.http.post(this.baseApi+"/producto?idProveedor="+idProveedor,producto);
+  }
+
   public listarProductos(pageNumber, pageSize, orderBy, sortDir) {
     return this.http.get(this.baseApi+"/producto?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
@@ -44,7 +62,15 @@ export class ApiService {
     return this.http.get(this.baseApi+"/producto/"+idProducto);
   }
 
+  public listaProductosByProveedorId(pageNumber,pageSize,orderBy,sort,idProveedor){
+    return this.http.get(this.baseApi+"/producto/proveedor?idProveedor="+idProveedor+"&numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sort);
+  }
+
   /* ++Propietarios++ */
+  public agregarPropietario(propietario:any){
+    return this.http.post(this.baseApi+"/propietario",propietario);
+  }
+
   public listarPropietarios(pageNumber, pageSize, orderBy,sortDir){
     return this.http.get(this.baseApi+"/propietario?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
@@ -55,6 +81,10 @@ export class ApiService {
 
 
   /* ++Proveedor++ */
+  public agregaProveedor(proveedor){
+    return this.http.post(this.baseApi+"/proveedor",proveedor);
+  }
+
   public listarProveedor(pageNumber,pageSize,orderBy,sortDir){
     return this.http.get(this.baseApi+"/proveedor?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
@@ -64,6 +94,10 @@ export class ApiService {
   }
 
   /* ++Servicio++ */
+  public agregarServicio(servicio){
+    return this.http.post(this.baseApi+"/servicio",servicio);
+  }
+
   public listarServicio(pageNumber,pageSize,orderBy,sortDir){
     return this.http.get(this.baseApi+"/servicio?numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }

@@ -1,20 +1,46 @@
-<h1>Proveedor</h1>
-<button>Crear Proveedor</button>
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Nombre</th>
-            <th>Telefono</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let proveedor of lista_proveedor">
-        <tr>
-            <td>{{proveedor.idProveedor}}</td>
-            <td>{{proveedor.nombreProveedor}}</td>
-            <td>{{proveedor.telefonoProveedor}}</td>
-            <td><a [routerLink]="'/admin/proveedor/'+proveedor.idProveedor">Detalles</a></td>
-        </tr>
-    </tbody>
-</table>
+<div class="titulo">
+  <h1>Proveedores</h1>
+</div>
+<div class="botonCenter" style="text-align: center">
+  <button class="icon-btn add-btn" [routerLink]="'/admin/proveedor/add'">
+    <div class="add-icon"></div>
+    <div class="btn-txt">Crear Proveedor</div>
+  </button>
+</div>
+<div class="bg-image h-100" style="background-color: #f5f7fa;">
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12"  style="height: 700px">
+          <div class="card shadow-2-strong">
+            <div class="card-body p-0">
+              <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                style="position: relative;">
+                <table class="table table-dark mb-0">
+                  <thead style="background-color: #393939;">
+                    <tr class="text-uppercase text-success">
+                      <th scope="col">#</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Tipo</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let proveedor of lista_proveedor">
+                    <tr>
+                      <td>{{proveedor.idProveedor}}</td>
+                      <td>{{proveedor.nombreProveedor}}</td>
+                      <td>{{proveedor.telefonoProveedor}}</td>
+                      <td>{{proveedor.tipoProveedor}}</td>
+                      <td><a [routerLink]="'/admin/proveedor/'+proveedor.idProveedor">Detalles</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

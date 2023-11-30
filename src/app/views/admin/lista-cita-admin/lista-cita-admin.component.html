@@ -1,1 +1,20 @@
-<p>lista-cita-admin works!</p>
+<h2>Calendario</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Domingo</th>
+      <th>Lunes</th>
+      <th>Martes</th>
+      <th>Miércoles</th>
+      <th>Jueves</th>
+      <th>Viernes</th>
+      <th>Sábado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let week of days">
+      <td *ngFor="let day of week">{{ day }} 
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,146 +1,33 @@
 /* ++Titulo++ */
 h1 {
-  font-size: 10vw;
-  /* Utiliza el 5% del ancho de la pantalla como tamaño de fuente base */
-  text-transform: uppercase;
-  font-family: 'Gambetta', serif;
-  letter-spacing: -0.15em;
-  /* Utiliza em para el espaciado de letras */
-  position: absolute;
-  margin-top: 5%;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-image: linear-gradient(gold, gold);
-  background-size: 100% 10px;
-  background-repeat: no-repeat;
-  background-position: 100% 0%;
-  transition: background-size 0.7s, background-position 0.5s ease-in-out;
-  font-variation-settings: "wght"311;
-  color: PaleGoldenRod;
-  outline: none;
-  text-align: center;
-}
-
+    font-size: 7vw;
+    /* Utiliza el 5% del ancho de la pantalla como tamaño de fuente base */
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -0.15em;
+    /* Utiliza em para el espaciado de letras */
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(gold, gold);
+    background-size: 100% 10px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    transition: background-size 0.7s, background-position 0.5s ease-in-out;
+    font-variation-settings: "wght"311;
+    color: PaleGoldenRod;
+    outline: none;
+    text-align: center;
+  }
+  
 h1:hover {
-  font-variation-settings: "wght"582;
-  letter-spacing: 1px;
-  background-size: 100% 100%;
-  background-position: 0% 100%;
-  transition: background-position 0.7s, background-size 0.5s ease-in-out;
-}
+    background-size: 100% 100%;
+    background-position: 0% 100%;
+    transition: background-position 0.7s, background-size 0.5s ease-in-out;
+  }
 
-/* ++Fin Titullo++ */
-
-/* ++Boton Agregar++ */
-.botonCenter {
-  position: relative;
-  right: 24%;
-  top: 230px;
-}
-
-.main-hr {
-  border: none;
-  border-top: 1px solid #c3c3c3;
-}
-
-.icon-btn {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #cdcdcd;
-  background: white;
-  border-radius: 25px;
-  overflow: hidden;
-  position: relative;
-  transition: width 0.2s ease-in-out;
-}
-
-.add-btn:hover {
-  width: 120px;
-}
-
-.add-btn::before,
-.add-btn::after {
-  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
-  content: "";
-  position: absolute;
-  height: 4px;
-  width: 10px;
-  top: calc(50% - 2px);
-  background: red;
-}
-
-.add-btn::after {
-  right: 14px;
-  overflow: hidden;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.add-btn::before {
-  left: 14px;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
-.icon-btn:focus {
-  outline: none;
-}
-
-.btn-txt {
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.add-btn:hover::before,
-.add-btn:hover::after {
-  width: 4px;
-  border-radius: 2px;
-}
-
-.add-btn:hover .btn-txt {
-  opacity: 1;
-}
-
-.add-icon::after,
-.add-icon::before {
-  transition: all 0.2s ease-in-out;
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 2px;
-  top: calc(50% - 10px);
-  background: red;
-  overflow: hidden;
-}
-
-.add-icon::before {
-  left: 22px;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
-.add-icon::after {
-  right: 22px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.add-btn:hover .add-icon::before {
-  left: 15px;
-  height: 4px;
-  top: calc(50% - 2px);
-}
-
-.add-btn:hover .add-icon::after {
-  right: 15px;
-  height: 4px;
-  top: calc(50% - 2px);
-}
-
-/* ++Fin Boton Agregar++ */
-
-/* ++Tabla++*/
+  /* ++Tabla++*/
 .table-wrapper {
   margin: 10px 70px 70px;
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
@@ -249,7 +136,7 @@ a:hover {
 
 .content {
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 10%;
   margin-left: 10%;
 }
 

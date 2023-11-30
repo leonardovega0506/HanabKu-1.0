@@ -1,0 +1,66 @@
+<div class="titulo">
+  <h1>Agregar Proveedor</h1>
+</div>
+<div class="registration-form">
+  <form (ngSubmit)="agregarProveedor()" [formGroup]="proveedorNuevo">
+    <div class="form-icon">
+      <span><i class="icon icon-user"></i></span>
+    </div>
+    <div class="form-group">
+      <div *ngIf="proveedorNuevo.get('nombreProveedor').invalid && proveedorNuevo.get('nombreProveedor').touched" class="error-container">
+        <div *ngIf="proveedorNuevo.get('nombreProveedor').hasError('required')" class="error-message">
+          El nombre es obligatorio.
+        </div>
+        <div *ngIf="proveedorNuevo.get('nombreProveedor').hasError('minlength')" class="error-message">
+          El nombre debe tener al menos 4 caracteres.
+        </div>
+      </div>
+      <input type="text" class="form-control item" id="username" placeholder="Nombre" formControlName="nombreProveedor"
+        name="nombreProveedor" required>
+    </div>
+    <div class="form-group">
+      <div *ngIf="proveedorNuevo.get('tipoProveedor').invalid && proveedorNuevo.get('tipoProveedor').touched" class="error-container">
+        <div *ngIf="proveedorNuevo.get('tipoProveedor').hasError('required')" class="error-message">
+          El tipo es obligatorio.
+        </div>
+      </div>
+      <input type="text" class="form-control item" placeholder="Tipo" formControlName="tipoProveedor"
+        name="tipoProveedor" required>
+    </div>
+    <div *ngIf="proveedorNuevo.get('telefonoProveedor').invalid && proveedorNuevo.get('telefonoProveedor').touched" class="error-container">
+      <div *ngIf="proveedorNuevo.get('telefonoProveedor').hasError('required')" class="error-message">
+        El telefono es obligatorio.
+      </div>
+      <div *ngIf="proveedorNuevo.get('telefonoProveedor').hasError('minlength')" class="error-message">
+        El telefono debe tener al menos 8 caracteres.
+      </div>
+      <div *ngIf="proveedorNuevo.get('telefonoProveedor').hasError('maxlength')" class="error-message">
+        El telfono no debe exceder de 12 caracteres.
+      </div>
+      <div *ngIf="proveedorNuevo.get('telefonoProveedor').hasError('pattern')" class="error-message">
+        El telfono sólo debe contener numeros.
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control item" type="tel" placeholder="Telefono" formControlName="telefonoProveedor"
+        name="telefonoProveedor" required>
+    </div>
+    <div class="form-group">
+      <div *ngIf="proveedorNuevo.get('emailProveedor').invalid && proveedorNuevo.get('emailProveedor').touched" class="error-container">
+        <div *ngIf="proveedorNuevo.get('emailProveedor').hasError('minlength')" class="error-message">
+          El email debe tener al menos 4 caracteres.
+        </div>
+        <div *ngIf="proveedorNuevo.get('emailProveedor').hasError('email')" class="error-message">
+          No coincide con el formato de correo electronico.
+        </div>
+      </div>
+      <input type="text" class="form-control item" placeholder="Correo Electronico" formControlName="emailProveedor" name="emailProveedor">
+    </div>
+
+    <div class="form-group">
+      <button type="button" class="btn btn-block create-account">Agregar Proveedor</button> &nbsp;
+      <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+    </div>
+  </form>
+
+</div>

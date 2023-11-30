@@ -1,0 +1,83 @@
+<div class="titulo">
+  <h1>Agregar Producto</h1>
+</div>
+<div class="registration-form">
+  <form (ngSubmit)="agregarProducto()" [formGroup]="productoNuevo">
+    <div class="form-icon">
+      <span><i class="icon icon-user"></i></span>
+    </div>
+    <div class="form-group">
+      <div *ngIf="productoNuevo.get('nombreProducto').invalid && productoNuevo.get('nombreProducto').touched"
+        class="error-container">
+        <div *ngIf="productoNuevo.get('nombreProducto').hasError('required')" class="error-message">
+          El nombre es obligatorio.
+        </div>
+      </div>
+      <input type="text" class="form-control item" id="nombreProducto" placeholder="Nombre"
+        formControlName="nombreProducto" name="nombreProducto" required>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control item" id="marcaProducto" placeholder="Marca"
+        formControlName="marcaProducto" name="marcaProducto">
+    </div>
+    <div class="form-group">
+      <div *ngIf="productoNuevo.get('tipoProducto').invalid && productoNuevo.get('tipoProducto').touched"
+        class="error-container">
+        <div *ngIf="productoNuevo.get('tipoProducto').hasError('required')" class="error-message">
+          El tipo es obligatorio.
+        </div>
+      </div>
+      <input type="text" class="form-control item" placeholder="Tipo" formControlName="tipoProducto" name="tipoProducto"
+        required>
+    </div>
+    <div *ngIf="productoNuevo.get('costoProducto').invalid && productoNuevo.get('costoProducto').touched"
+      class="error-container">
+      <div *ngIf="productoNuevo.get('costoProducto').hasError('required')" class="error-message">
+        El costo es obligatorio.
+      </div>
+      <div *ngIf="productoNuevo.get('costoProducto').hasError('pattern')" class="error-message">
+        El costo sólo debe contener numeros.
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control item" type="tel" placeholder="Costo" formControlName="costoProducto"
+        name="costoProducto" required>
+    </div>
+    <div class="form-group">
+      <div
+        *ngIf="productoNuevo.get('precioClienteProducto').invalid && productoNuevo.get('precioClienteProducto').touched"
+        class="error-container">
+        <div *ngIf="productoNuevo.get('precioClienteProducto').hasError('pattern')" class="error-message">
+          El precio para el cliente es obligatorio
+        </div>
+      </div>
+      <input type="text" class="form-control item" placeholder="Precio Cliente" formControlName="precioClienteProducto"
+        name="precioClienteProducto">
+    </div>
+    <div class="form-group">
+      <div *ngIf="productoNuevo.get('cantidadProducto').invalid && productoNuevo.get('cantidadProducto').touched"
+        class="error-container">
+        <div *ngIf="productoNuevo.get('cantidadProducto').hasError('required')" class="error-message">
+          La cantidad es obligatoria
+        </div>
+      </div>
+      <input type="text" class="form-control item" placeholder="Cantidad" formControlName="cantidadProducto"
+        name="cantidadProducto">
+    </div>
+    <div class="form-group">
+      <select formControlName="proveedorSeleccionado" class="form-control item" name="proveedor">
+        <option>Proveedor</option>
+        <option [value]="proveedor.idProveedor" *ngFor="let proveedor of listaProveedors">{{proveedor.nombreProveedor}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea name="descripcionProducto" formControlName="descripcionProducto" id="" cols="90" rows="10"
+        class="form-control item" placeholder="Descripcion"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-block create-account">Agregar Producto</button> &nbsp;
+      <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+    </div>
+  </form>
+</div>
