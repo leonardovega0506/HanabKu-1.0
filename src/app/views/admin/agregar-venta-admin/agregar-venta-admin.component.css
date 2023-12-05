@@ -1,0 +1,222 @@
+/* ++Titulo++ */
+h1 {
+    font-size: 7vw;
+    /* Utiliza el 5% del ancho de la pantalla como tamaño de fuente base */
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -0.15em;
+    /* Utiliza em para el espaciado de letras */
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(gold, gold);
+    background-size: 100% 10px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    transition: background-size 0.7s, background-position 0.5s ease-in-out;
+    font-variation-settings: "wght"311;
+    color: PaleGoldenRod;
+    outline: none;
+    text-align: center;
+  }
+  
+h1:hover {
+    background-size: 100% 100%;
+    background-position: 0% 100%;
+    transition: background-position 0.7s, background-size 0.5s ease-in-out;
+  }
+
+  /* ++Tabla++*/
+.table-wrapper {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.fl-table td,
+.fl-table th {
+  text-align: center;
+  padding: 8px;
+}
+
+@media (max-width: 767px) {
+  .fl-table {
+    display: block;
+    width: 100%;
+  }
+
+  .table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+  }
+
+  .fl-table thead,
+  .fl-table tbody,
+  .fl-table thead th {
+    display: block;
+  }
+
+  .fl-table thead th:last-child {
+    border-bottom: none;
+  }
+
+  .fl-table thead {
+    float: left;
+  }
+
+  .fl-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .fl-table td,
+  .fl-table th {
+    padding: 20px .625em .625em .625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+
+  .fl-table thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+
+  .fl-table tbody tr {
+    display: table-cell;
+  }
+
+  .fl-table tbody tr:nth-child(odd) {
+    background: none;
+  }
+
+  .fl-table tr:nth-child(even) {
+    background: transparent;
+  }
+
+  .fl-table tr td:nth-child(odd) {
+    background: #F8F8F8;
+    border-right: 1px solid #E6E4E4;
+  }
+
+  .fl-table tr td:nth-child(even) {
+    border-right: 1px solid #E6E4E4;
+  }
+
+  .fl-table tbody td {
+    display: block;
+    text-align: center;
+  }
+}
+
+* {
+  margin: auto;
+}
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+a,
+a:hover {
+  text-decoration: none !important;
+}
+
+.content {
+  justify-content: center;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.custom-table {
+  min-width: 900px;
+}
+
+.custom-table thead tr,
+.custom-table thead th {
+  padding-bottom: 30px;
+  border-top: none;
+  border-bottom: none !important;
+  color: #000;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.custom-table tbody th,
+.custom-table tbody td {
+  color: #000;
+  font-weight: 400;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-weight: 300;
+  border: none;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.custom-table tbody th a,
+.custom-table tbody td a {
+  color: #000;
+}
+
+.custom-table tbody th .more,
+.custom-table tbody td .more {
+  color: #000;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+}
+
+.custom-table tbody tr {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease;
+}
+
+.custom-table tbody tr:hover td,
+.custom-table tbody tr:focus td {
+  color: #fff;
+}
+
+.custom-table tbody tr:hover td a,
+.custom-table tbody tr:focus td a {
+  color: #fdd114;
+}
+
+.custom-table tbody tr:hover td .more,
+.custom-table tbody tr:focus td .more {
+  color: #fdd114;
+}
+
+.custom-table .td-box-wrap {
+  padding: 0;
+}
+
+.custom-table .box {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.custom-table .box td,
+.custom-table .box th {
+  border: none !important;
+}
+
+/* ++Fin Tabla++ */

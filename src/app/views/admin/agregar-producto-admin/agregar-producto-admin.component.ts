@@ -15,9 +15,9 @@ export class AgregarProductoAdminComponent implements OnInit{
     tipoProducto:new FormControl('',Validators.required),
     claveProducto: new FormControl(''),
     marcaProducto:new FormControl(''),
-    costoProducto:new FormControl(0,[Validators.required,Validators.pattern(/^[0-9]+$/)]),
-    precioClienteProducto:new FormControl(0,[Validators.required,Validators.pattern(/^[0-9]+$/)]),
-    cantidadProducto:new FormControl(0,[Validators.required,Validators.pattern(/^[0-9]+$/)]),
+    costoProducto:new FormControl('',[Validators.required,Validators.pattern(/^[0-9.]+$/)]),
+    precioClienteProducto:new FormControl('',[Validators.required,Validators.pattern(/^[0-9.]+$/)]),
+    cantidadProducto:new FormControl('',[Validators.required,Validators.pattern(/^[0-9.]+$/)]),
     proveedorSeleccionado:new FormControl(''),
     descripcionProducto:new FormControl(''),
   });

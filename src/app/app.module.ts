@@ -60,6 +60,7 @@ import { AgregarProveedorAdminComponent } from './views/admin/agregar-proveedor-
 import { AgregarPropietarioAdminComponent } from './views/admin/agregar-propietario-admin/agregar-propietario-admin.component';
 import { AgregarPacienteAdminComponent } from './views/admin/agregar-paciente-admin/agregar-paciente-admin.component';
 import { AgregarServicioComponent } from './views/admin/agregar-servicio/agregar-servicio.component';
+import { AgregarVentaAdminComponent } from './views/admin/agregar-venta-admin/agregar-venta-admin.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { AgregarServicioComponent } from './views/admin/agregar-servicio/agregar
     AgregarProveedorAdminComponent,
     AgregarPropietarioAdminComponent,
     AgregarPacienteAdminComponent,
-    AgregarServicioComponent
+    AgregarServicioComponent,
+    AgregarVentaAdminComponent
   ],
   imports: [
     BrowserModule,

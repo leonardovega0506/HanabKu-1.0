@@ -66,7 +66,6 @@
     </div>
     <div class="form-group">
       <select formControlName="proveedorSeleccionado" class="form-control item" name="proveedor">
-        <option>Proveedor</option>
         <option [value]="proveedor.idProveedor" *ngFor="let proveedor of listaProveedors">{{proveedor.nombreProveedor}}
         </option>
       </select>

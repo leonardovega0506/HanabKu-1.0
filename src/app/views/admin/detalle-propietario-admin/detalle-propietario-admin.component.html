@@ -1,4 +1,5 @@
-<h1>Detalle Propietario</h1>
+<div class="titulo">
+  <h1>Detalle Propietario</h1>
 <h2>Nombre</h2>
 <h3>{{propietarioTraido?.nombrePropietario}}</h3>
 <h2>Fecha Alta</h2>
@@ -13,24 +14,99 @@
 <h3>{{propietarioTraido?.emailPropietario}}</h3>
 <h2>Observaciones</h2>
 <h3>{{propietarioTraido?.observacionesPropietario}}</h3>
-
-<button>Editar</button>
-<button>Eliminar</button>
-<button>Regresar</button>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Tipo</th>
-      <th>Raza</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Pulgas</td>
-      <td>Perro</td>
-      <td>Mestizo</td>
-    </tr>
-  </tbody>
-</table>
+  <button (click)="openModal(modalEditar)">Editar</button>
+  <button (click)="eliminarPropietario()">Eliminar</button>
+  <button [routerLink]="'/admin/proveedor'">Regresar</button>
+  </div>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12" style="height: 700px">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative;">
+                  <table class="table table-dark mb-0">
+                    <thead style="background-color: #393939;">
+                      <tr class="text-uppercase text-success">
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Edad</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let paciente of lista_paciente">
+                      <tr>
+                        <td>{{paciente.idPaciente}}</td>
+                        <td>{{paciente.nombrePaciente}}</td>
+                        <td>{{paciente.tipoMascotaPaciente}}</td>
+                        <td>{{paciente.edadPaciente}}</td>
+                        <td><a [routerLink]="'/admin/paciente/'+paciente.idProducto">Detalles</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #modalEditar let-modal>
+    <form (ngSubmit)="actualizarPropietario()">
+      <!--Cabecera-->
+      <div class="modal-header fondo-cabecera">
+        <h4 class="modal-title">Crear Registro</h4>
+        <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Cuerpo-->
+      <div class="modal-body fondo-modal">
+        <div class="titulo">
+          <h1>Agregar Dueño</h1>
+        </div>
+        <div class="registration-form">
+          <form (ngSubmit)="actualizarPropietario()">
+            <div class="form-icon">
+              <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" id="nombrePropietario" placeholder="Nombre" [(ngModel)]="propietarioTraido.nombrePropietario"
+                name="nombrePropietario">
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control item" placeholder="Telefono 1" [(ngModel)]="propietarioTraido.telefono1Propietario"
+                name="telefono1Propietario" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control item" type="tel" placeholder="Telefono 2" [(ngModel)]="propietarioTraido.telefono2Propietario"
+                name="telefono2Propietario" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" placeholder="Correo Electronico" [(ngModel)]="propietarioTraido.emailPropietario" name="emailPropietario">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control item" name="domicilioPropietario" [(ngModel)]="propietarioTraido.domicilioPropietario" cols="30" rows="10" placeholder="Domiclio"></textarea>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control item" name="observacionesPropietario" [(ngModel)]="propietarioTraido.observacionesPropietario" cols="30" rows="5" placeholder="Observaciones"></textarea>
+            </div>
+        
+            <div class="form-group">
+              <button type="submit" class="btn btn-block create-account">Agregar Dueño</button> &nbsp;
+              <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+            </div>
+          </form>
+        </div>      
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-block create-account">Actualizar</button> &nbsp;
+        <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Cancelar</button>
+      </div>
+    </form>
+  </ng-template>
+  

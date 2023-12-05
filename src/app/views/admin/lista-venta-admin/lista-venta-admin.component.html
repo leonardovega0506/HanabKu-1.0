@@ -1,20 +1,44 @@
-<h1>Ventas</h1>
-<button>Crear Compra</button>
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Fecha</th>
-            <th>Total</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let venta of lista_ventas">
-        <tr>
-            <td>{{venta.idVenta}}</td>
-            <td>{{venta.fechaVenta}}</td>
-            <td>{{venta.totalVenta | currency}}</td>
-            <td><a [routerLink]="'/admin/venta/'+venta.idVenta">Detalles</a></td>
-        </tr>
-    </tbody>
-</table>  
+<div >
+    <h1 class="titulo">Ventas</h1>
+  </div>
+  <div class="botonCenter" style="text-align: center">
+    <button class="icon-btn add-btn" [routerLink]="'/admin/ventas/add'">
+      <div class="add-icon"></div>
+      <div class="btn-txt">Crear Venta</div>
+    </button>
+  </div>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12" style="height: 700px">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative;">
+                  <table class="table table-dark mb-0">
+                    <thead style="background-color: #393939;">
+                      <tr class="text-uppercase text-success">
+                        <th>#</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let venta of lista_ventas">
+                      <tr>
+                        <td>{{venta.idVenta}}</td>
+                        <td>{{venta.fechaVenta}}</td>
+                        <td>{{venta.totalVenta | currency}}</td>
+                        <td><a [routerLink]="'/admin/venta/'+venta.idVenta">Detalles</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

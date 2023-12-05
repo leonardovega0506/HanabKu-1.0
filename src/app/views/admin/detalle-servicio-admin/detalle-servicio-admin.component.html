@@ -1,12 +1,66 @@
-<h1>Detalles Servicio</h1>
-<h2>Nombre</h2>
-<h3>{{servicioTraido?.nombreServicio}}</h3>
-<h2>Tipo</h2>
-<h3>{{servicioTraido?.tipoServicio}}</h3>
-<h2>Duracion</h2>
-<h3>{{servicioTraido?.duracion}}</h3>
-<h2>Costo</h2>
-<h3>{{servicioTraido?.costoServicio}}</h3>
-<button>Editar</button>
-<button>Eliminar</button>
-<button>Regresar</button>
+<div class="titulo">
+  <h1>Detalles Servicio</h1>
+  <h2>Nombre</h2>
+  <h3>{{servicioTraido?.nombreServicio}}</h3>
+  <h2>Tipo</h2>
+  <h3>{{servicioTraido?.tipoServicio}}</h3>
+  <h2>Duracion</h2>
+  <h3>{{servicioTraido?.duracion}}</h3>
+  <h2>Costo</h2>
+  <h3>{{servicioTraido?.costoServicio}}</h3>
+
+  <button (click)="openModal(modalEditar)">Editar</button>
+  <button (click)="eliminarServicio()">Eliminar</button>
+  <button [routerLink]="'/admin/producto'">Regresar</button>
+</div>
+<ng-template #modalEditar let-modal>
+  <form (ngSubmit)="actualizarServicio()">
+    <!--Cabecera-->
+    <div class="modal-header fondo-cabecera">
+      <h4 class="modal-title">Crear Registro</h4>
+      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!--Cuerpo-->
+    <div class="modal-body fondo-modal">
+      <div class="titulo">
+        <h1>Agregar Producto</h1>
+      </div>
+      <div class="registration-form">
+        <div class="form-icon">
+          <span><i class="icon icon-user"></i></span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" id="nombreProducto" placeholder="Nombre"
+            [(ngModel)]="servicioTraido.nombreServicio" name="nombreServicio" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" placeholder="Tipo" [(ngModel)]="servicioTraido.tipoServicio"
+            name="tipoServicio" required>
+        </div>
+        <div class="form-group">
+          <input class="form-control item" type="number" placeholder="Costo" [(ngModel)]="servicioTraido.costoServicio"
+            name="costoServicio" required>
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control item" placeholder="Duracion" [(ngModel)]="servicioTraido.duracion"
+            name="precioClienteProducto">
+        </div>
+        <div class="form-group">
+          <textarea name="descripcionServicio" [(ngModel)]="servicioTraido.descripcionServicio" id="" cols="90" rows="10"
+            class="form-control item" placeholder="Descripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-block create-account">Agregar Servicio</button> &nbsp;
+          <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+        </div>
+      </div>
+    </div>
+    <!--Footer-->
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-block create-account">Actualizar</button> &nbsp;
+      <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Cancelar</button>
+    </div>
+  </form>
+</ng-template>

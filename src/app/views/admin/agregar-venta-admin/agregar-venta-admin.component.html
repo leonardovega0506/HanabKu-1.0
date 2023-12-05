@@ -1,0 +1,74 @@
+<!--Header
+<div>
+  <!--Titulo
+  <h1>Crear Compra</h1>
+</div> -->
+
+<div class="content">
+    <form>
+      <select [(ngModel)]="proveedorSeleccionado" (change)="cargarProductos()" name="proveedorSeleccionado">
+        <option [value]="proveedor.idProveedor" *ngFor="let proveedor of listaProveedores">{{proveedor.nombreProveedor}}
+        </option>
+      </select>
+      </form>
+      <div class="container">
+        <div class="table-responsive table-wrapper">
+          <table class="table table-striped custom-table fl-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Clave</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let producto of listaProductos">
+              <tr scope="row">
+                <td>{{producto.idProducto}}</td>
+                <td>{{producto.claveProducto}}</td>
+                <td>{{producto.tipoProducto}}</td>
+                <td>{{producto.nombreProducto}}</td>
+                <td>{{producto.cantidadProducto}}</td>
+                <td>{{producto.precioProducto}}</td>
+                <td><button (click)="abrirModal(modalCantidad,producto)">Añadir</button></td>
+              </tr>
+            </tbody>
+          </table>
+  
+          <br>
+          <table class="table table-striped custom-table fl-table" *ngIf="listaProductosCompra.length !=0">
+            <thead>
+              <tr>
+                <th>Clave</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let productoCompra of listaProductosCompra">
+              <tr>
+                <td>{{productoCompra.clave}}</td>
+                <td>{{productoCompra.precio | currency}}</td>
+                <td>{{cantidad}}</td>
+                <td>{{productoCompra.totalProducto | currency}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <tr>
+            <td>Total</td>
+            <td>{{total|currency}}</td>
+            <td><button (click)="realizarCompra()">Pedir</button></td>
+          </tr>
+        </div>
+      </div>
+    </div>
+  
+  <ng-template #modalCantidad>
+    <form action="">
+      <input [(ngModel)]="cantidad" type="number" placeholder="Cantidad" name="cantidad">
+      <button (click)="agregarProducto()">Añadir</button>
+    </form>
+  </ng-template>

@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api/api.service';
-import { FormsModule } from '@angular/forms';
+import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
-  selector: 'app-agregar-compra-admin',
-  templateUrl: './agregar-compra-admin.component.html',
-  styleUrls: ['./agregar-compra-admin.component.css']
+  selector: 'app-agregar-venta-admin',
+  templateUrl: './agregar-venta-admin.component.html',
+  styleUrls: ['./agregar-venta-admin.component.css']
 })
-export class AgregarCompraAdminComponent implements OnInit{
-  
+export class AgregarVentaAdminComponent {
   listaProveedores:any[];
   proveedorSeleccionado;
   listaProductos:any[];
@@ -82,5 +79,4 @@ export class AgregarCompraAdminComponent implements OnInit{
       }
       );
   }
-
 }

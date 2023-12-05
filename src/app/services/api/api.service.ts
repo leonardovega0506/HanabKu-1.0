@@ -24,8 +24,8 @@ export class ApiService {
     return this.http.get(this.baseApi + "/compras?numPage=" + pagina + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sort);
   }
 
-  public agregarCompra(compra){
-    return this.http.post(this.baseApi+"/compras",compra);
+  public agregarCompra(compra,idProveedor){
+    return this.http.post(this.baseApi+"/compras?idProveedor="+idProveedor,compra);
   }
 
   //Obtener la compra por su id
@@ -35,12 +35,24 @@ export class ApiService {
 
 
   /* ++Pacientes++ */
+  public actualizarPaciente(paciente){
+    return this.http.put(this.baseApi+"/paciente",paciente);
+  }
+
   public agregarPaciente(paciente,idPropietario){
     return this.http.post(this.baseApi+"/paciente?idPropietario="+idPropietario,paciente);
   }
 
+  public eliminarPaciente(idPaciente){
+    return this.http.delete(this.baseApi+"/paciente/"+idPaciente);
+  }
+
   public listarPaciente(pageNumber, pageSize, orderBy, sortDir) {
     return this.http.get(this.baseApi + "/paciente?numPage=" + pageNumber + "&numSize=" + pageSize + "&orderBy=" + orderBy + "&sortDir=" + sortDir);
+  }
+
+  public listarPacienteByPropietario(idPropietario,pageNumber,pageSize,orderBy,sortDir){
+    return this.http.get(this.baseApi+"/paciente/propietario?idPropietario="+idPropietario+"&numPage="+pageNumber+"&numSize="+pageSize+"&orderBy="+orderBy+"&sortDir="+sortDir);
   }
 
   public obtenerPacienteById(idPaciente) {
@@ -49,9 +61,16 @@ export class ApiService {
 
 
   /* ++Productos++ */
+  public actualizarProducto(producto){
+    return this.http.put(this.baseApi+"/producto",producto);
+  }
 
   public agregarProducto(producto,idProveedor){
     return this.http.post(this.baseApi+"/producto?idProveedor="+idProveedor,producto);
+  }
+
+  public eliminarProducto(idProducto){
+    return this.http.delete(this.baseApi+"/producto/"+idProducto);
   }
 
   public listarProductos(pageNumber, pageSize, orderBy, sortDir) {
@@ -81,8 +100,16 @@ export class ApiService {
 
 
   /* ++Proveedor++ */
+  public actualizarProveedor(proveedor){
+    return this.http.put(this.baseApi+"/proveedor",proveedor);
+  }
+
   public agregaProveedor(proveedor){
     return this.http.post(this.baseApi+"/proveedor",proveedor);
+  }
+
+  public eliminarProveedor(idProveedor){
+    return this.http.delete(this.baseApi+"/proveedor/"+idProveedor);
   }
 
   public listarProveedor(pageNumber,pageSize,orderBy,sortDir){
@@ -94,8 +121,16 @@ export class ApiService {
   }
 
   /* ++Servicio++ */
+  public actualizarServicio(servicio){
+    return this.http.put(this.baseApi+"/servicio",servicio);
+  }
+
   public agregarServicio(servicio){
     return this.http.post(this.baseApi+"/servicio",servicio);
+  }
+
+  public eliminarServicio(idServicio){
+    return this.http.delete(this.baseApi+"/servicio/"+idServicio)
   }
 
   public listarServicio(pageNumber,pageSize,orderBy,sortDir){

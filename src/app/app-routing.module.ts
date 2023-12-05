@@ -22,6 +22,7 @@ import { AgregarProveedorAdminComponent } from './views/admin/agregar-proveedor-
 import { AgregarPropietarioAdminComponent } from './views/admin/agregar-propietario-admin/agregar-propietario-admin.component';
 import { AgregarPacienteAdminComponent } from './views/admin/agregar-paciente-admin/agregar-paciente-admin.component';
 import { AgregarServicioComponent } from './views/admin/agregar-servicio/agregar-servicio.component';
+import { AgregarVentaAdminComponent } from './views/admin/agregar-venta-admin/agregar-venta-admin.component';
 
 const routes: Routes = [
   {path:'admin',component:DashboardAdminComponent,children:[
@@ -45,6 +46,7 @@ const routes: Routes = [
     {path:'servicio/add',component:AgregarServicioComponent},
     {path:'servicio/:id',component:DetalleServicioAdminComponent},
     {path:'ventas',component:ListaVentaAdminComponent},
+    {path:'ventas/add',component:AgregarVentaAdminComponent},
     {path:'ventas/:id',component:DetalleVentaAdminComponent}
   ]}
 ];

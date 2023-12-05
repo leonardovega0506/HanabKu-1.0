@@ -1,19 +1,83 @@
-<h1>Detalles Producto</h1>
-<h2>Nombre Producto</h2>
-<h3>{{productoTraido?.nombreProducto}}</h3>
-<h2>Clave</h2>
-<h3>{{productoTraido?.claveProducto}}</h3>
-<h2>Tipo</h2>
-<h3>{{productoTraido?.tipoProducto}}</h3>
-<h2>Precio Proveedor</h2>
-<h3>{{productoTraido?.costoProducto |currency}}</h3>
-<h2>Precio Cliente</h2>
-<h3>{{productoTraido?.precioProducto | currency}}</h3>
-<h2>Cantidad</h2>
-<h3>{{productoTraido?.cantidadProducto}}</h3>
-<h2>Proveedor</h2>
-<h3>{{productoTraido?.proveedor.nombreProveedor}}</h3>
+<div class="titulo">
+  <h1>Detalles Producto</h1>
+  <h2>Nombre Producto</h2>
+  <h3>{{productoTraido?.nombreProducto}}</h3>
+  <h2>Clave</h2>
+  <h3>{{productoTraido?.claveProducto}}</h3>
+  <h2>Tipo</h2>
+  <h3>{{productoTraido?.tipoProducto}}</h3>
+  <h2>Precio Proveedor</h2>
+  <h3>{{productoTraido?.costoProducto |currency}}</h3>
+  <h2>Precio Cliente</h2>
+  <h3>{{productoTraido?.precioClienteProducto | currency}}</h3>
+  <h2>Cantidad</h2>
+  <h3>{{productoTraido?.cantidadProducto}}</h3>
+  <h2>Proveedor</h2>
+  <h3>{{productoTraido?.proveedor.nombreProveedor}}</h3>
 
-<button>Editar</button>
-<button>Eliminar</button>
-<button>Regresar</button>
+  <button (click)="openModal(modalEditar)">Editar</button>
+  <button (click)="eliminarProducto()">Eliminar</button>
+  <button [routerLink]="'/admin/producto'">Regresar</button>
+</div>
+<ng-template #modalEditar let-modal>
+  <form (ngSubmit)="actualizarProducto()">
+    <!--Cabecera-->
+    <div class="modal-header fondo-cabecera">
+      <h4 class="modal-title">Crear Registro</h4>
+      <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!--Cuerpo-->
+    <div class="modal-body fondo-modal">
+      <div class="titulo">
+        <h1>Agregar Producto</h1>
+      </div>
+      <div class="registration-form">
+        <div class="form-icon">
+          <span><i class="icon icon-user"></i></span>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" id="nombreProducto" placeholder="Nombre"
+            [(ngModel)]="productoTraido.nombreProducto" name="nombreProducto" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" id="marcaProducto" placeholder="Marca"
+          [(ngModel)]="productoTraido.marcaProducto" name="marcaProducto">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" placeholder="Tipo" [(ngModel)]="productoTraido.tipoProducto"
+            name="tipoProducto" required>
+        </div>
+        <div class="form-group">
+          <input class="form-control item" type="tel" placeholder="Costo" [(ngModel)]="productoTraido.costoProducto"
+            name="costoProducto" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" placeholder="Precio Cliente"
+          [(ngModel)]="productoTraido.precioClienteProducto" name="precioClienteProducto">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control item" placeholder="Cantidad" [(ngModel)]="productoTraido.cantidadProducto"
+            name="cantidadProducto">
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+          <textarea name="descripcionProducto" [(ngModel)]="productoTraido.descripcionProducto" id="" cols="90" rows="10"
+            class="form-control item" placeholder="Descripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-block create-account">Agregar Producto</button> &nbsp;
+          <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+        </div>
+      </div>
+
+    </div>
+    <!--Footer-->
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-block create-account">Actualizar</button> &nbsp;
+      <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Cancelar</button>
+    </div>
+  </form>
+</ng-template>

@@ -1,17 +1,22 @@
-<h1>Detalles</h1>
-<h2>Nombre</h2>
-<h3>{{pacienteTraido?.nombre_paciente}}</h3>
-<h2>Tipo</h2>
-<h3>{{pacienteTraido?.tipoMascotaPaciente}}</h3>
-<h2>Raza</h2>
-<h3>{{pacienteTraido?.razaPaciente}}</h3>
-<h2>Color</h2>
-<h3>{{pacienteTraido?.colorPaciente }}</h3>
-<h2>Edad</h2>
-<h3>{{pacienteTraido?.edadPaciente}}</h3>
+<div class="titulo">
+    <h1>Detalles</h1>
+    <h2>Nombre</h2>
+    <h3>{{pacienteTraido?.nombrePaciente}}</h3>
+    <h2>Tipo</h2>
+    <h3>{{pacienteTraido?.tipoMascotaPaciente}}</h3>
+    <h2>Raza</h2>
+    <h3>{{pacienteTraido?.razaPaciente}}</h3>
+    <h2>Color</h2>
+    <h3>{{pacienteTraido?.colorPaciente }}</h3>
+    <h2>Edad</h2>
+    <h3>{{pacienteTraido?.edadPaciente}}</h3>
+  
+    <button (click)="openModal(modalEditar)">Editar</button>
+    <button (click)="eliminarPaciente()">Eliminar</button>
+    <button [routerLink]="'/admin/producto'">Regresar</button>
 
 
-<h1>Servicios</h1>
+    <h1>Servicios</h1>
 <table>
     <thead>
         <tr>
@@ -30,3 +35,55 @@
         </tr>
     </tbody>
 </table>
+  </div>
+  <ng-template #modalEditar let-modal>
+    <form (ngSubmit)="actualizarPaciente()">
+      <!--Cabecera-->
+      <div class="modal-header fondo-cabecera">
+        <h4 class="modal-title">Crear Registro</h4>
+        <button class="btn close" aria-label="close" type="button" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Cuerpo-->
+      <div class="modal-body fondo-modal">
+        <div class="titulo">
+          <h1>Agregar Producto</h1>
+        </div>
+            <div class="form-icon">
+              <span><i class="icon icon-user"></i></span>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" id="nombrePaciente" placeholder="Nombre" [(ngModel)]="pacienteTraido.nombrePaciente"
+                name="nombrePaciente">
+            </div>
+            <div class="form-group">
+              <input type="tel" class="form-control item" placeholder="Tipo" 
+                name="tipoMascotaPaciente" [(ngModel)]="pacienteTraido.tipoMascotaPaciente" required>
+            </div>
+            <div class="form-group">
+              <input class="form-control item" type="tel" placeholder="Raza" 
+                name="razaPaciente" [(ngModel)]="pacienteTraido.razaPaciente" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" placeholder="Color" [(ngModel)]="pacienteTraido.colorPaciente" name="colorPaciente">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" placeholder="Sexo" [(ngModel)]="pacienteTraido.sexoPaciente" name="sexoPaciente">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control item" placeholder="Edad" [(ngModel)]="pacienteTraido.edadPaciente" name="edadPaciente">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-block create-account">Agregar Paciente</button> &nbsp;
+              <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Regresar</button>
+            </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-block create-account">Actualizar</button> &nbsp;
+        <button type="button" [routerLink]="'/admin/proveedor'" class="btn btn-block create-account">Cancelar</button>
+      </div>
+    </form>
+  </ng-template>
+  
